@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 type GameData = {
   dragon: number;
@@ -32,7 +32,7 @@ export const gameSlice = createSlice({
       }
       return state;
     },
-    doTick: (state) => {
+    doTick: () => {
       // do something
     },
   },
