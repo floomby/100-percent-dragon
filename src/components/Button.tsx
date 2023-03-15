@@ -55,7 +55,7 @@ const Button: React.FC<{
 
   return (
     <div className="basis-1/4">
-      <div className="ml-4 mt-0 inline-block">
+      <div className="mt-0 inline-block">
         <div>
           <button
             className="transform rounded bg-transparent py-2 px-4 font-bold text-white transition-all duration-200 ease-in-out hover:scale-110"
