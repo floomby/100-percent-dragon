@@ -63,11 +63,11 @@ const Button: React.FC<{
               dispatch(handler());
               const theta = Math.random() * Math.PI * 2;
               const vel = {
-                x: Math.cos(theta) * 10,
-                y: Math.sin(theta) * 10,
+                x: Math.cos(theta) * 5,
+                y: Math.sin(theta) * 5,
               };
-              const randomOffsetX = Math.random() * 100 - 50;
-              const randomOffsetY = Math.random() * 100 - 50;
+              const randomOffsetX = Math.random() * 70 - 35;
+              const randomOffsetY = Math.random() * 70 - 35;
               const omega = Math.random() * 0.1 - 0.05;
               const randomTheta = Math.random() * Math.PI * 2;
               setFlying((prev) => [
@@ -90,7 +90,7 @@ const Button: React.FC<{
             key={`${f.pos.x},${f.pos.y}`}
             className="absolute"
             style={{
-              transform: `rotate(${f.theta}rad) translate(${f.pos.x}px, ${f.pos.y}px)`,
+              transform: `translate(${f.pos.x}px, ${f.pos.y - 100}px) rotate(${f.theta}rad)`,
             }}
           >
             <Image
