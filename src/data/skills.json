@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "name": "Skill 1",
+    "description": "The first skill",
+    "unlocked": true
+  },
+  {
+    "id": 1,
+    "name": "Skill 2",
+    "description": "A second skill",
+    "unlocked": false
+  },
+  {
+    "id": 2,
+    "name": "Skill 3",
+    "description": "A third skill",
+    "unlocked": false
+  },
+  {
+    "id": 3,
+    "name": "Skill 4",
+    "description": "A fourth skill",
+    "unlocked": false
+  }
+]

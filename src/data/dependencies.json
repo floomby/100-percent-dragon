@@ -1,0 +1,14 @@
+[
+  {
+    "skill_id": 1,
+    "requires": [0]
+  },
+  {
+    "skill_id": 2,
+    "requires": [0]
+  },
+  {
+    "skill_id": 3,
+    "requires": [1, 2]
+  }
+]
