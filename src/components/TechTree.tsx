@@ -33,43 +33,37 @@ export default function TechTree() {
     skillsData.map((skill: Skill) => [skill.id, skill])
   );
 
-  // Build the skill tree by recursively rendering sub-trees
-  function renderSubTree(skill: Skill) {
-    const dependantSkills: Skill[] = [];
-    const dependantSkillsIds = dependenciesData.filter((dep) =>
-      dep["requires"].includes(skill.id)
+  function renderSkill(skill: Skill) {
+    // get ids of dependant skills
+    const skillDependencies = dependenciesData.filter(
+      (dep) => dep["skill_id"] === skill.id
     );
 
-    for (const dependantSkillsIdsEntry of dependantSkillsIds) {
-      dependantSkills.push(
-        skillsMap.get(dependantSkillsIdsEntry.skill_id) as Skill
-      );
-    }
+    // Check if any dependencies are locked. If there are, the item will be disabled
+    const hasLockedDependencies: boolean =
+      skillDependencies[0]?.requires?.some(
+        (depId) => skillsMap.get(depId)?.unlocked === false
+      ) ?? false;
+
+    const buttonClasses: string[] = [
+      "text-left mb-2 ",
+      skill.unlocked ? "opacity-100": "opacity-50"
+    ]
 
     return (
       <li key={skill.id}>
         <button
+          className={buttonClasses.join("")}
+          disabled={hasLockedDependencies}
           onClick={() => handleSkillClick(skill.id)}
-          style={{opacity: (!skill.unlocked) ? "0.5" : "1"}}
         >
           {skill.name}
+          {hasLockedDependencies && <span className="block text-xs">This item is can&apos;t be unlocked yet.</span>}
         </button>
-
-        {
-          skill.unlocked === true && (
-            <ul>
-              {dependantSkills.map((dep) => {
-                if (dep?.id) {
-                  return (renderSubTree(skillsData[dep.id] as Skill));
-                }
-              })}
-            </ul>
-          )
-        }
       </li>
     );
   }
 
   // Render the top-level skill tree
-  return <ul>{renderSubTree(skillsData[0] as Skill)}</ul>;
+  return <ul>{skillsData.map((skill) => renderSkill(skill))}</ul>;
 }
