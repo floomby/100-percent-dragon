@@ -5,6 +5,8 @@ import { type RootState } from "~/redux/store";
 import SkillTree from "./SkillTree"
 import Panel from "./Panel"
 import Button from "./Button"
+import skills from "../data/skills.json";
+import dependencies from "../data/dependencies.json";
 
 const Game: React.FC = () => {
   useEffect(() => {
@@ -18,7 +20,7 @@ const Game: React.FC = () => {
 
   return (
     <>
-      <SkillTree />
+      <SkillTree dependenciesData={dependencies} skills={skills} />
 
       <div className="flex h-full w-full flex-col md:flex-row max-w-3xl gap-4">
         <div className="flex h-full w-full flex-row items-center justify-center">

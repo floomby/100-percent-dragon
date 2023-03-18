@@ -1,6 +1,9 @@
 import React from "react";
-import skills from "../data/skills.json";
-import dependenciesData from "../data/dependencies.json";
+
+interface Props {
+  dependenciesData: Dependency[],
+  skills: Skill[]
+}
 
 type Skill = {
   id: number;
@@ -23,7 +26,7 @@ type Dependency = {
  * Skills should have a maximum of 3 dependencies.
  */
 
-export default function SkillTree() {
+export default function SkillTree({dependenciesData, skills}: Props) {
   const [skillsData, setSkillsData] = React.useState<Skill[]>(skills);
 
   // build css grid definition
