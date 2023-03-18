@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { doTick, incDragon, incScience } from "~/redux/game";
 import { type RootState } from "~/redux/store";
-import TechTree from "./TechTree"
+import SkillTree from "./SkillTree"
 import Panel from "./Panel"
 import Button from "./Button"
 
@@ -18,7 +18,7 @@ const Game: React.FC = () => {
 
   return (
     <>
-      <TechTree />
+      <SkillTree />
 
       <div className="flex h-full w-full flex-col md:flex-row max-w-3xl gap-4">
         <div className="flex h-full w-full flex-row items-center justify-center">

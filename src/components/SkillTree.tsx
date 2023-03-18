@@ -14,7 +14,16 @@ type Dependency = {
   requires: number[];
 }
 
-export default function TechTree() {
+/**
+ * This component renders skills in a tree structure.
+ * It takes in a skills.json and dependencies.json.
+ * The dependencies describe which skills have to be unlocked first before a certain skill kann be unlocked.
+ * Inside the tree, Skills are oragnized in rows.
+ * Skills form a row if they are have a common skill that depends on them.
+ * Skills should have a maximum of 3 dependencies.
+ */
+
+export default function SkillTree() {
   const [skillsData, setSkillsData] = React.useState<Skill[]>(skills);
 
   // build css grid definition
